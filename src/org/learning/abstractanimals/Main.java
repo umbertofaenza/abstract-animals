@@ -9,10 +9,28 @@ public class Main {
                 new Dolphin()
         };
 
+//        for(Animal animal : animals) {
+//            animal.makeNoise();
+//            animal.eat();
+//            animal.sleep();
+//        }
+
         for(Animal animal : animals) {
-            animal.makeNoise();
-            animal.eat();
-            animal.sleep();
+            if(animal instanceof CanSwim) {
+                makeSwim((CanSwim) animal);
+            } else if (animal instanceof CanFly) {
+                makeFly((CanFly) animal);
+            } else {
+                animal.makeNoise();
+            }
         }
+    }
+
+    public static void makeFly(CanFly animal) {
+        animal.fly();
+    }
+
+    public static void makeSwim(CanSwim animal) {
+        animal.swim();
     }
 }
